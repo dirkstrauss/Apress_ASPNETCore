@@ -19,10 +19,10 @@ namespace VideoStore.Pages.Videos
             _config = config;
             _videoData = videoData;
         }
-        public void OnGet()
+        public void OnGet(string searchQuery)
         {
             PageTitle = _config["VideoListPageTitle"];
-            Videos = _videoData.ListVideos();
+            Videos = _videoData.ListVideos(searchQuery);
         }
     }
 }

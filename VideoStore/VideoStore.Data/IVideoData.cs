@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using VideoStore.Core;
 
 namespace VideoStore.Data
 {
     public interface IVideoData
     {
-        IEnumerable<Video> ListVideos();
+        IEnumerable<Video> ListVideos(string title);
     }
 }
