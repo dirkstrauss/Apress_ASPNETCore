@@ -8,5 +8,8 @@ namespace VideoStore.Core
         public string Title { get; set; }
         public DateTime ReleaseDate { get; set; }
         public MovieGenre Genre { get; set; }
+        public double Price { get; set; }
+        public bool LentOut { get; set; }
+        public string LentTo { get; set; }
     }
 }

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
@@ -14,15 +15,18 @@ namespace VideoStore.Pages.Videos
         public string PageTitle { get; set; }
         public IEnumerable<Video> Videos { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchQuery { get; set; }
+
         public ListModel(IConfiguration config, IVideoData videoData)
         {
             _config = config;
             _videoData = videoData;
         }
-        public void OnGet(string searchQuery)
+        public void OnGet()
         {
             PageTitle = _config["VideoListPageTitle"];
-            Videos = _videoData.ListVideos(searchQuery);
+            Videos = _videoData.ListVideos(SearchQuery);
         }
     }
 }
