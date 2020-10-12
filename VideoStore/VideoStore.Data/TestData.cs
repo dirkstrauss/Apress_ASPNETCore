@@ -21,5 +21,7 @@ namespace VideoStore.Data
             .Where(x => string.IsNullOrEmpty(title) 
             || x.Title.StartsWith(title))
             .OrderBy(x => x.Title);
+
+        public Video GetVideo(int id) => _videoList.SingleOrDefault(x => x.Id == id);
     }
 }

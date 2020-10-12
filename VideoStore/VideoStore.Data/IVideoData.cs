@@ -6,5 +6,6 @@ namespace VideoStore.Data
     public interface IVideoData
     {
         IEnumerable<Video> ListVideos(string title);
+        Video GetVideo(int id);
     }
 }
