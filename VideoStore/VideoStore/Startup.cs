@@ -33,7 +33,7 @@ namespace VideoStore
         {
             if (env.IsDevelopment())
             {
-                _ = app.UseDeveloperExceptionPage();
+                _ = app.UseDeveloperExceptionPage();                
             }
             else
             {

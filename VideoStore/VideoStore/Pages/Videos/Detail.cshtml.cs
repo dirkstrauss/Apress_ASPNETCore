@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using VideoStore.Core;
 using VideoStore.Data;
 
@@ -15,9 +16,11 @@ namespace VideoStore.Pages.Videos
             _videoData = videoData;
         }
 
-        public void OnGet(int videoId)
+        public IActionResult OnGet(int videoId)
         {
             Video = _videoData.GetVideo(videoId);
+
+            return Video == null ? RedirectToPage("./VideoError", new { message = "The video does not exist" }) : (IActionResult)Page();
         }
     }
 }
