@@ -8,9 +8,9 @@
 <form method="get">
     <div class="form-group">
         <div class="input-group">
-            <input type="search" 
-                   class="form-control" 
-                   asp-for="SearchQuery"/>
+            <input type="search"
+                   class="form-control"
+                   asp-for="SearchQuery" />
             <button class="btn btn-group">
                 <i class="fas fa-search"></i>
             </button>
@@ -30,7 +30,7 @@
             Genre
         </div>
         <div class="col-md-3">
-            
+
         </div>
     </div>
     @foreach (var video in Model.Videos)
@@ -46,10 +46,17 @@
                 @video.Genre
             </div>
             <div class="col-md-3">
-                <div>
-                    <a class="btn btn-lg" asp-page="./Detail" asp-route-videoId="@video.Id">
-                        <i class="fas fa-info-circle"></i>
-                    </a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-lg" asp-page="./Detail" asp-route-videoId="@video.Id">
+                            <i class="fas fa-info-circle"></i>
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-lg" asp-page="./Edit" asp-route-videoId="@video.Id">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
