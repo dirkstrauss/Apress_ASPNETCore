@@ -24,7 +24,8 @@ namespace VideoStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            _ = services.AddScoped<IVideoData, TestData>();
+            //_ = services.AddScoped<IVideoData, TestData>();
+            _ = services.AddSingleton<IVideoData, TestData>(); // TODO: Change to scoped
             _ = services.AddRazorPages();
         }
 

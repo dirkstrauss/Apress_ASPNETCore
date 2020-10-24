@@ -23,5 +23,30 @@ namespace VideoStore.Data
             .OrderBy(x => x.Title);
 
         public Video GetVideo(int id) => _videoList.SingleOrDefault(x => x.Id == id);
+
+        public Video UpdateVideo(Video updatedVideoData)
+        {
+            var dbObj = _videoList.SingleOrDefault(x => x.Id == updatedVideoData.Id);
+            if (dbObj != null)
+            {
+                dbObj.Title = updatedVideoData.Title;
+                dbObj.ReleaseDate = updatedVideoData.ReleaseDate;
+                dbObj.Genre = updatedVideoData.Genre;
+                dbObj.Price = updatedVideoData.Price;
+                dbObj.LentOut = updatedVideoData.LentOut;
+                dbObj.LentTo = updatedVideoData.LentTo;                
+            }
+
+            return dbObj;
+        }
+
+        public Video AddVideo(Video newVideo)
+        {
+            newVideo.Id = _videoList.Max(x => x.Id) + 1;
+            _videoList.Add(newVideo);
+            return newVideo;
+        }
+
+        public int Save() => 0;
     }
 }
