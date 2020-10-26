@@ -41,8 +41,10 @@ namespace VideoStore.Pages.Videos
         {
             if (ModelState.IsValid)
             {
+                TempData["CommitMessage"] = Video.Id > 0 ? "Video Updated" : "Video Added";
                 _ = Video.Id > 0 ? _videoData.UpdateVideo(Video) : _videoData.AddVideo(Video);
                 _ = _videoData.Save();
+                
                 return RedirectToPage("./Detail", new { videoId = Video.Id });
             }
             Genres = _helper.GetEnumSelectList<MovieGenre>();

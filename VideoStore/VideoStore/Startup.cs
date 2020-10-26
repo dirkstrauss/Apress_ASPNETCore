@@ -26,7 +26,8 @@ namespace VideoStore
         {
             //_ = services.AddScoped<IVideoData, TestData>();
             _ = services.AddSingleton<IVideoData, TestData>(); // TODO: Change to scoped
-            _ = services.AddRazorPages();
+            _ = services.AddRazorPages().AddSessionStateTempDataProvider();
+            _ = services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +50,8 @@ namespace VideoStore
             _ = app.UseRouting();
 
             _ = app.UseAuthorization();
+
+            _ = app.UseSession();
 
             _ = app.UseEndpoints(endpoints =>
               {

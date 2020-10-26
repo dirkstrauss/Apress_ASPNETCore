@@ -6,6 +6,12 @@
 
 <h1>@Model.Video.Title</h1>
 
+@if (Model.CommitMessage != null)
+{
+    //TempData.Keep("CommitMessage");
+    <div class="alert alert-info">@Model.CommitMessage</div>
+}
+
 <div>
     Catalog ID: @Model.Video.Id
 </div>

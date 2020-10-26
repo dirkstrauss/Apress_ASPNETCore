@@ -11,6 +11,9 @@ namespace VideoStore.Pages.Videos
 
         public Video Video { get; set; }
 
+        [TempData]
+        public string CommitMessage { get; set; }
+
         public DetailModel(IVideoData videoData)
         {
             _videoData = videoData;
