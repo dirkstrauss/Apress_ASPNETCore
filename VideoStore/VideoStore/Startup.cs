@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VideoStore.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace VideoStore
 {
@@ -24,8 +25,14 @@ namespace VideoStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //_ = services.AddScoped<IVideoData, TestData>();
-            _ = services.AddSingleton<IVideoData, TestData>(); // TODO: Change to scoped
+            _ = services.AddDbContextPool<VideoDbContext>(dbContextOptns =>
+            {
+                _ = dbContextOptns.UseSqlServer(
+                    Configuration.GetConnectionString("VideoConn"));
+            });
+
+            _ = services.AddScoped<IVideoData, SQLData>();
+            //_ = services.AddSingleton<IVideoData, TestData>(); // TODO: Change to scoped
             _ = services.AddRazorPages().AddSessionStateTempDataProvider();
             _ = services.AddSession();
         }
