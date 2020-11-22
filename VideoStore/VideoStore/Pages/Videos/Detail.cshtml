@@ -22,9 +22,10 @@
 <div>
     Genre: @Model.Video.Genre
 </div>
-<div>
+@*<div>
     Price: $@Model.Video.Price
-</div>
+</div>*@
+<videoPrice video-price="@Model.Video.Price" culture-name="en-GB" label="Price: "></videoPrice>
 <div>
     Lent Out: @Html.CheckBoxFor(x => x.Video.LentOut)
 </div>
@@ -35,6 +36,5 @@
         Lent To: @Model.Video.LentTo
     </div>
 }
-
 
 <a asp-page="./List" class="btn btn-outline-primary">Back to Videos</a>
