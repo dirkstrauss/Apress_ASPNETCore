@@ -31,5 +31,9 @@ namespace VideoStore.Core
 
             return validationResults;
         }
+
+        public int Rating { get; set; }
+        public string Review { get; set; }
+        public string OnlineURL { get; set; }
     }
 }

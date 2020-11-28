@@ -48,5 +48,10 @@ namespace VideoStore.Data
         }
 
         public int Save() => 0;
+
+        public Video GetTopVideo()
+        {
+            return _videoList.First();
+        }
     }
 }

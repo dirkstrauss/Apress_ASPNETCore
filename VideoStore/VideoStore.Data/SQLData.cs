@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using VideoStore.Core;
@@ -18,6 +19,13 @@ namespace VideoStore.Data
         }
 
         public Video GetVideo(int id) => _database.Videos.Find(id);
+
+        public Video GetTopVideo()
+        {
+            var rnd = new Random();
+            var r = rnd.Next(1, _database.Videos.Count());
+            return _database.Videos.Find(r);
+        }
 
         public IEnumerable<Video> ListVideos(string title) => _database.Videos
                 .Where(x => string.IsNullOrEmpty(title)

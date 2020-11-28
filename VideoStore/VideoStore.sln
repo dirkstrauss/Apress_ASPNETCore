@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoStore", "VideoStore\VideoStore.csproj", "{00B37399-5412-4098-8EB9-7CA79B644C44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStore.Core", "VideoStore.Core\VideoStore.Core.csproj", "{06B7B0AD-069F-4B6E-8E81-DA987DC66BC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoStore.Core", "VideoStore.Core\VideoStore.Core.csproj", "{06B7B0AD-069F-4B6E-8E81-DA987DC66BC8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoStore.Data", "VideoStore.Data\VideoStore.Data.csproj", "{BFFAFD22-A1BE-4AB7-B337-7C77640F84AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VideoStore.Data", "VideoStore.Data\VideoStore.Data.csproj", "{BFFAFD22-A1BE-4AB7-B337-7C77640F84AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
