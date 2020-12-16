@@ -6,6 +6,14 @@
     <title>@ViewData["Title"] - VideoStore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/custom.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/custom.min.css" />
+    </environment>
 </head>
 <body>
     <header>
@@ -26,7 +34,7 @@
             </div>
         </nav>
     </header>
-    
+
     @RenderSection("Notification", required: false)
 
     <div class="container">
@@ -35,11 +43,21 @@
         </main>
     </div>
     <footer class="border-top footer text-muted">
-    <vc:video-of-the-day></vc:video-of-the-day>
+        <vc:video-of-the-day></vc:video-of-the-day>
         <div class="container">
             &copy; 2020 - VideoStore - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
+
+        <environment include="Development">
+            <h2>Development</h2>
+        </environment>
+        <environment exclude="Development">
+            <h2>Production</h2>
+        </environment>
+
     </footer>
+
+    
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

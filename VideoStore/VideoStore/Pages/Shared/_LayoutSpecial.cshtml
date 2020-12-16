@@ -6,6 +6,13 @@
     <title>@ViewData["Title"] - VideoStore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/custom.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/custom.min.css" />
+    </environment>
 </head>
 <body>
     <header>
