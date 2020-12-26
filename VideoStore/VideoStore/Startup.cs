@@ -10,6 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VideoStore.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
+using VideoStore.CustomMiddleware;
 
 namespace VideoStore
 {
@@ -35,6 +38,14 @@ namespace VideoStore
             //_ = services.AddSingleton<IVideoData, TestData>(); // TODO: Change to scoped
             _ = services.AddRazorPages().AddSessionStateTempDataProvider();
             _ = services.AddSession();
+
+            //_ = services.AddHsts(opts =>
+            //{
+            //    opts.Preload = true;
+            //    opts.IncludeSubDomains = true;
+            //    opts.MaxAge = TimeSpan.FromDays(60);
+            //    opts.ExcludedHosts.Add("www.somesite.com");
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,9 +62,15 @@ namespace VideoStore
                 _ = app.UseHsts();
             }
 
+            _ = app.UseMyCustomMiddleware();
+
             _ = app.UseHttpsRedirection();
             _ = app.UseStaticFiles();
-
+            //_ = app.UseStaticFiles(new StaticFileOptions
+            //{
+            //    FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "StaticFiles")), RequestPath = "/StaticFiles"
+            //});
+                        
             _ = app.UseRouting();
 
             _ = app.UseAuthorization();
@@ -64,6 +81,8 @@ namespace VideoStore
               {
                   _ = endpoints.MapRazorPages();
               });
+
+            
         }
     }
 }

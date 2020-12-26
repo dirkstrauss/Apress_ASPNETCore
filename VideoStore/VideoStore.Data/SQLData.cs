@@ -23,8 +23,13 @@ namespace VideoStore.Data
         public Video GetTopVideo()
         {
             var rnd = new Random();
-            var r = rnd.Next(1, _database.Videos.Count());
-            return _database.Videos.Find(r);
+            if (_database.Videos.Count() == 0)
+                return new Video();
+            else
+            {
+                var r = rnd.Next(1, _database.Videos.Count());
+                return _database.Videos.Find(r);
+            }            
         }
 
         public IEnumerable<Video> ListVideos(string title) => _database.Videos
