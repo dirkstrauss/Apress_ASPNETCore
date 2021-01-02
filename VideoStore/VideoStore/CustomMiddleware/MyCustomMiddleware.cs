@@ -19,7 +19,9 @@ namespace VideoStore.CustomMiddleware
 
         public async Task InvokeAsync(HttpContext httpContext)
         {
-            _logger.LogInformation("**** Middleware Invoke Called ****");
+            _logger.LogInformation("**** Info Middleware Invoke Called ****");
+            _logger.LogWarning("**** Warning Middleware Invoke Called ****");
+            _logger.LogError("**** Error Middleware Invoke Called ****");
             await _next(httpContext);
         }
     }
